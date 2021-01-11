@@ -1,15 +1,20 @@
-<h1> <%= @task.title %></h1>
+<div class="d-flex justify-content-between align-items-center">
+  <h1><%= @task.title %></h1>
+  <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-light" %>
+</div>
 
-<%= @task.details %>
+<p><%= @task.details %></p>
 
 <p><%= @task.completed ? "This task is completed :D" : "This task is not yet completed :(" %></p>
 
-<%= link_to tasks_path do %>
-  <div class="btn btn-primary">Back to list</div>
-<% end %>
+<hr>
 
-<%= link_to edit_task_path do %>
-  <div class="btn btn-primary">Edit task</div>
-<% end %>
+<div class="d-flex justify-content-between align-items-center">
+	<%= link_to tasks_path do %>
+	<div class="btn btn-primary">Back to list</div>
+	<% end %>
 
-<%= link_to task_path(@task), method: :delete, data: {confirm: "Are you sure?"} do %> <i class="fas fa-trash"></i> <% end %>
+	<%= link_to task_path(@task), method: :delete, data: {confirm: "Are you sure?"} do %>
+	<div class="btn btn-danger">Delete task</div>
+	<% end %>
+</div>
