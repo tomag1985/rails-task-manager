@@ -1,14 +1,1 @@
-<%= form_for(@task) do |t| %>
-	<div class="form-group">
-		<%= t.label :title, "Task title" %>
-		<%= t.text_field :title, class: "form-control" %>
-
-		<%= t.label :details, "Task details" %>
-		<%= t.text_area :details, class: "form-control" %>
-
-		<%= t.submit class:"btn btn-primary" %>
-		<%= link_to tasks_path do %>
-		<div class="btn btn-primary">Back to list</div>
-		<% end %>
-	</div>
-<% end %>
+<%= render "form", task: @task %>
